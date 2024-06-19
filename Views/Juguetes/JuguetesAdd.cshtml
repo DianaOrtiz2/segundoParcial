@@ -1,0 +1,34 @@
+@model SegundoParcial.Models.ToyModel
+@using SegundoParcial.Models
+
+@Html.DisplayForModel()
+
+@{
+    ViewData["Title"] = "Juguetes";
+}
+<h4>Agregar Book</h4>
+<hr />
+
+<form asp-action="ToySave" asp-controller="Toys">
+    <div class="mb-3">
+        <label asp-for="codigo" class="form-label">Codigo</label>
+        <input type="text" asp-for="codigo" class="form-control">
+
+        <label asp-for="nombre" class="form-label">Nombre</label>
+        <input type="text" asp-for="nombre" class="form-control">
+
+         <label asp-for="precio" class="form-label">Placa</label>
+        <input type="numeric" asp-for="precio" class="form-control">
+
+        <label asp-for="Vigencia" class="form-label">Placa</label>
+        <input type="date" asp-for="Vigencia" class="form-control">
+
+        <label asp-for="Activo" class="form-label">Placa</label>
+        <input type="text" asp-for="Activo" class="form-control" placeholder="Disponible / No Disponible">
+        <br>
+        <button class="btn btn-primary" type="submit">Guardar</button>
+        <a class="btn btn-secundary" asp-action="JuguetesList" asp-controller="Toys">Cancelar</a>
+       
+    </div>
+
+</form>

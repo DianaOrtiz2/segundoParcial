@@ -1,0 +1,48 @@
+@model List<SegundoParcial.Models.ToyModel>
+
+@{
+    ViewData["Title"] = "Juguetes";
+    int numero = 0; 
+}
+
+
+<h2 class="Display-5">Lsitado de Juguetes</h2>
+</h>
+
+<a class="btn btn-primary" asp-action="JuguetesAdd" asp-controller="Toy">Nuevo Jueguete</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Codigo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Vigencia</th>
+            <th scope="col">Activo</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var toys in Model){
+            {
+                numero++;
+            }
+            <tr>
+                <th scope="row">@numero</th>
+                <td>@toys.codigo</td>
+                <td>@toys.nombre</td>
+                <td>@toys.precio</td>
+                <td>@toys.Vigencia</td>
+                <td>@toys.Activo</td>
+                <td>
+                <a class="btn btn-primary" asp-action="ToyShowAndEdit" asp-controller="Toys" asp-route-id="@toys.Id">Editar</a>
+
+                <a class="btn btn-dark" asp-action="ToyShowToDeleted" asp-controller="Toys" asp-route-id="@toys.Id">Borrar</a>
+            </td>
+            </tr>
+            
+        }
+
+    </tbody>
+</table>

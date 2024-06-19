@@ -1,0 +1,44 @@
+@model List<SegundoParcial.Models.MarcasModel>
+
+@{
+    ViewData["Title"] = "Marcas";
+    int numero = 0; 
+}
+
+
+<h2 class="Display-5">Lsitado de Marcas</h2>
+</h>
+
+<a class="btn btn-primary" asp-action="MarcaAdd" asp-controller="Marca">Nuevo Jueguete</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Codigo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Activo</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var marca in Model){
+            {
+                numero++;
+            }
+            <tr>
+                <th scope="row">@numero</th>
+                <td>@marca.codigo</td>
+                <td>@marca.Nombre</td>
+                <td>@marca.Activo</td>
+                <td>
+                <a class="btn btn-primary" asp-action="MarcaShowAndEdit" asp-controller="Marca" asp-route-id="@marca.Id">Editar</a>
+
+                <a class="btn btn-dark" asp-action="MarcaShowToDeleted" asp-controller="Marca" asp-route-id="@marca.Id">Borrar</a>
+            </td>
+            </tr>
+            
+        }
+
+    </tbody>
+</table>
